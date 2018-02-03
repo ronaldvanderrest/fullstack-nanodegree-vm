@@ -1,8 +1,11 @@
 <html>
+<head>
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}" />
+</head>
 <body>
   <h1>Edit Restaurant</h1>
 
-  <form action ="{{ url_for('editRestaurant',restaurant_id = restaurant.id) }}" method = 'post'>
+  <form action ="{{ url_for('editRestaurants',restaurant_id = restaurant.id) }}" method = 'post'>
 
     <p>
       Name:
@@ -12,7 +15,7 @@
 
     <input type = 'submit' value = 'Edit' />
 
-    <a href = '#'> Cancel </a>
+    <a href = '{{ url_for('showRestaurants') }}'> Cancel </a>
 
 
 
