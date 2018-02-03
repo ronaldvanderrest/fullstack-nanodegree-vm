@@ -4,19 +4,47 @@
 
   <form action ="#" method = 'post'>
 
-    <p>
-      Name:
-    </p>
+    <p>Name:</p>
+      <input type = 'text' size = '30' name='name' placeholder="{{ item.name }}" />
 
-    <input type = 'text' size = '30' name='name' placeholder="{{ item.name }}" />
+    <p>Description:</p>
+      <input type = 'text' size = '30' name='description' placeholder="{{ item.description }}" />
 
+    <p>Price:</p>
+      <input type = 'text' size = '30' name='price' placeholder="{{ item.price }}" />
+
+    <p>Course:</p>
+
+    {% if item.course == 'Appetizer' %}
+      <input type="radio" name="course" value="Appetizer" checked> Appetizer<br>
+    {% else %}
+      <input type="radio" name="course" value="Appetizer" > Appetizer<br>
+    {% endif %}
+
+    {% if item.course == 'Entree' %}
+      <input type="radio" name="course" value="Entree" checked> Entree<br>
+    {% else %}
+      <input type="radio" name="course" value="Entree" > Entree<br>
+    {% endif %}
+
+    {% if item.course == 'Dessert' %}
+      <input type="radio" name="course" value="Dessert" checked> Dessert<br>
+    {% else %}
+      <input type="radio" name="course" value="Dessert" > Dessert<br>
+    {% endif %}
+
+    {% if item.course == 'Beverage' %}
+      <input type="radio" name="course" value="Beverage" checked> Beverage<br>
+    {% else %}
+      <input type="radio" name="course" value="Beverage" > Beverage<br>
+    {% endif %}
+    </br>
     <input type = 'submit' value = 'Edit' />
-
-    <a href = '#'> Cancel </a>
-
 
 
   </form>
+
+<a href = '{{url_for('showMenu', restaurant_id = restaurant_id )}}'> Cancel </a>
 
 </body>
 </html>
